@@ -1,0 +1,23 @@
+[package]
+name = "tauri-plugin-sql-transaction"
+version = "1.0.0"
+authors = [ "You" ]
+description = ""
+edition = "2021"
+rust-version = "1.77.2"
+exclude = ["/examples", "/dist-js", "/guest-js", "/node_modules"]
+links = "tauri-plugin-sql-transaction"
+
+[dependencies]
+tauri = { version = "2.9.5" }
+tauri-plugin-sql = { version = "2", features = ["sqlite", "mysql", "postgres"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+sqlx = { version = "0.8", default-features = false, features = ["runtime-tokio-rustls", "sqlite", "mysql", "postgres", "json"] }
+tokio = { version = "1.40", features = ["rt-multi-thread", "sync", "macros", "test-util"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+indexmap = "2"
+
+[build-dependencies]
+tauri-plugin = { version = "2.5.2", features = ["build"] }
